@@ -10,6 +10,10 @@ struct WeatherData : Decodable {
     let name: String
     let main: Main
     let weather: [Weather]
+    
+    func toWeatherModel() -> WeatherModel {
+        return WeatherModel(conditionalId: weather.first!.id, cityName: name, temperature: main.temp)
+    }
 }
 
 struct Main : Decodable {

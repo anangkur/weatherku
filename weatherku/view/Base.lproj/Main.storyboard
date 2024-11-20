@@ -145,7 +145,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="locationLabel" destination="t7y-ci-ZdF" id="QeU-95-v14"/>
                         <outlet property="searchTextField" destination="LJi-pI-9C4" id="dQA-gK-Odp"/>
+                        <outlet property="temperatureValueLabel" destination="YBV-Sh-I4d" id="Fiv-rf-T7J"/>
+                        <outlet property="weatherIcon" destination="ig4-6N-Pd7" id="UpW-R4-A8M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

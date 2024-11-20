@@ -9,6 +9,8 @@ import Foundation
 
 struct NetworkManager {
     
+    var networkHandler: NetworkHandler? = nil
+    
     private let dataManager = DataManager()
     
     func createNetworkingSession(url: String) {
@@ -21,12 +23,11 @@ struct NetworkManager {
     
     private func handleData(data: Data?, urlResponse: URLResponse?, error: Error?) {
         if error != nil {
-            print(error!)
+            networkHandler?.onFetchDataFailed(error: error!)
             return
         }
         if let safeData = data {
-            let weatherData = dataManager.parseJsonToWeatherData(data: safeData)
-            print(weatherData?.weather.first?.description ?? "")
+            networkHandler?.onFetchDataSuccess(data: safeData)
         }
     }
 }
