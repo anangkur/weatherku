@@ -9,7 +9,7 @@ import Foundation
 
 struct DataManager {
     
-    var dataHandler: DataHandler? = nil
+    var delegate: DataManagerDelegate?
     
     private let decoder = JSONDecoder()
     
@@ -17,7 +17,7 @@ struct DataManager {
         do {
             return try decoder.decode(WeatherData.self, from: data)
         } catch {
-            dataHandler?.onParseDataFailed(error: error)
+            delegate?.onParseDataFailed(error: error)
             return nil
         }
     }

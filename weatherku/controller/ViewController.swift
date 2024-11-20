@@ -7,19 +7,19 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate, WeatherHandler {
+class ViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
 
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var temperatureValueLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var weatherIcon: UIImageView!
     
-    private var weatherManager: WeatherManager? = nil
+    private let weatherManager: WeatherManager = WeatherManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weatherManager = WeatherManager(weatherHandler: self)
+        weatherManager.delegate = self
         searchTextField.delegate = self
     }
 
@@ -47,7 +47,7 @@ class ViewController: UIViewController, UITextFieldDelegate, WeatherHandler {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         if let city = searchTextField.text {
-            weatherManager?.fetchWeather(city: city)
+            weatherManager.fetchWeather(city: city)
         }
         searchTextField.text = ""
     }

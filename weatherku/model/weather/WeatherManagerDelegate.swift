@@ -5,7 +5,7 @@
 //  Created by Anang Kurniawan on 20/11/24.
 //
 
-protocol WeatherHandler {
+protocol WeatherManagerDelegate {
     func onFetchWeatherSuccess(weatherModel: WeatherModel)
     func onFetchWeatherFailed(error: Error)
 }

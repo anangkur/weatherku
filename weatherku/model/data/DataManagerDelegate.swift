@@ -5,6 +5,6 @@
 //  Created by Anang Kurniawan on 20/11/24.
 //
 
-protocol DataHandler {
+protocol DataManagerDelegate {
     func onParseDataFailed(error: Error)
 }

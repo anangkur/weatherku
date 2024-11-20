@@ -9,7 +9,7 @@ import Foundation
 
 struct NetworkManager {
     
-    var networkHandler: NetworkHandler? = nil
+    var delegate: NetworkManagerDelegate?
     
     private let dataManager = DataManager()
     
@@ -23,11 +23,11 @@ struct NetworkManager {
     
     private func handleData(data: Data?, urlResponse: URLResponse?, error: Error?) {
         if error != nil {
-            networkHandler?.onFetchDataFailed(error: error!)
+            delegate?.onFetchDataFailed(error: error!)
             return
         }
         if let safeData = data {
-            networkHandler?.onFetchDataSuccess(data: safeData)
+            delegate?.onFetchDataSuccess(data: safeData)
         }
     }
 }

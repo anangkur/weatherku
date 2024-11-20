@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol NetworkHandler {
+protocol NetworkManagerDelegate {
     func onFetchDataSuccess(data: Data)
     func onFetchDataFailed(error: Error)
 }
