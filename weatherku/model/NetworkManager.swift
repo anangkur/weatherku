@@ -7,7 +7,10 @@
 
 import Foundation
 
-class NetworkManager {
+struct NetworkManager {
+    
+    private let dataManager = DataManager()
+    
     func createNetworkingSession(url: String) {
         if let url = URL(string: url) {
             let session = URLSession(configuration: .default)
@@ -22,8 +25,8 @@ class NetworkManager {
             return
         }
         if let safeData = data {
-            let dataString: String = String(data: safeData, encoding: .utf8) ?? ""
-            print(dataString)
+            let weatherData = dataManager.parseJsonToWeatherData(data: safeData)
+            print(weatherData?.weather.first?.description ?? "")
         }
     }
 }

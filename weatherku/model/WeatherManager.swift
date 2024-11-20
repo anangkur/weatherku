@@ -5,7 +5,7 @@
 //  Created by Anang Kurniawan on 20/11/24.
 //
 
-class WeatherManager {
+struct WeatherManager {
     
     private let networkManager = NetworkManager()
     
