@@ -28,8 +28,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    private func search() {
-        print(searchTextField.text!)
+    private func search() {        
         searchTextField.endEditing(true)
     }
     
