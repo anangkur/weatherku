@@ -34,6 +34,9 @@
                                                         <color key="tintColor" systemColor="labelColor"/>
                                                         <state key="normal" title="Button"/>
                                                         <buttonConfiguration key="configuration" style="plain" image="location" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="locationPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wfy-lz-WbB"/>
+                                                        </connections>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="right" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="right" clearsOnBeginEditing="YES" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="LJi-pI-9C4" userLabel="searchTextField">
                                                         <rect key="frame" x="49.333333333333314" y="0.0" width="262" height="34.333333333333336"/>

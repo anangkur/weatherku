@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class WeatherManager : NetworkManagerDelegate, DataManagerDelegate {
     
@@ -23,6 +24,10 @@ class WeatherManager : NetworkManagerDelegate, DataManagerDelegate {
     
     func fetchWeather(city: String) {
         networkManager.createNetworkingSession(url: "\(url)&q=\(city)")
+    }
+    
+    func fetchWeather(latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+        networkManager.createNetworkingSession(url: "\(url)&lat=\(latitude)&lon=\(longitude)")
     }
     
     func onFetchDataSuccess(data: Data) {
