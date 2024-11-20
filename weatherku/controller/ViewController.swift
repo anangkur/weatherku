@@ -54,6 +54,11 @@ class ViewController: UIViewController, UITextFieldDelegate, WeatherManagerDeleg
     
     func onFetchWeatherSuccess(weatherModel: WeatherModel) {
         print(weatherModel)
+        DispatchQueue.main.async {
+            self.locationLabel.text = weatherModel.cityName
+            self.temperatureValueLabel.text = weatherModel.temperatureString
+            self.weatherIcon.image = UIImage(systemName: weatherModel.conditionName)
+        }
     }
     
     func onFetchWeatherFailed(error: any Error) {
